@@ -10,7 +10,7 @@
       "android",
       "web"
     ],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -25,7 +25,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    }
+      "supportsTablet": true,
+      "bundleIdentifier": "kr.hyungseok.kawai"
+    },
+    "android": {
+      "package": "kr.hyungseok.kawai"
+    },
+    "githubUrl": "https://github.com/jhs851/kawai-todo"
   }
 }

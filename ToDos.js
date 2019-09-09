@@ -22,14 +22,18 @@ export default class ToDos extends React.Component {
      * @param {string} text
      */
     add = (text) => {
-        this.setState(current => Object({
-            toDos: current.toDos.concat({
+        this.setState(current => {
+            current.toDos.unshift({
                 id: uuidv1(),
                 text: text,
                 completed: false,
                 createdAt: Date.now()
-            })
-        }), this.save);
+            });
+
+            return {
+                toDos: current.toDos
+            };
+        });
     };
 
     /**
@@ -44,7 +48,7 @@ export default class ToDos extends React.Component {
             return {
                 toDos: current.toDos
             }
-        }, this.save);
+        });
     };
 
     /**
@@ -59,7 +63,7 @@ export default class ToDos extends React.Component {
             return {
                 toDos: current.toDos
             }
-        }, this.save);
+        });
     };
 
     /**
@@ -75,9 +79,13 @@ export default class ToDos extends React.Component {
     /**
      * Storage에 ToDos를 저장합니다.
      */
-    save = () => {
-        AsyncStorage.setItem('toDos', JSON.stringify(this.state.toDos));
+    save(toDos) {
+        AsyncStorage.setItem('toDos', JSON.stringify(toDos));
     };
+
+    componentDidUpdate(prevProps, prevState) {
+        this.save(prevState.toDos);
+    }
 
     render() {
         return (

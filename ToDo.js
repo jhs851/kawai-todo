@@ -113,6 +113,7 @@ export default class ToDo extends React.Component {
                                        returnKeyType="done"
                                        autoCorrect={false}
                                        onSubmitEditing={this.update}
+                                       underlineColorAndroid="transparent"
                                        onBlur={this.update}
                                        multiline={true}
                                        ref={(input) => this.input = input}

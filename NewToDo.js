@@ -44,6 +44,7 @@ export default class NewToDo extends React.Component {
                        returnKeyType="done"
                        autoCorrect={false}
                        onSubmitEditing={this.submit}
+                       underlineColorAndroid="transparent"
             />
         );
     }
